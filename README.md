@@ -1,6 +1,9 @@
 # react-component-test
 A test suite showing the relation between ReactElement, ReactComponent, ReactClass, and React.Component
 
+Here you can find some [formal type definitions from the React documentation](https://facebook.github.io/react/docs/glossary.html#formal-type-definitions) backing up this stuff.  
+
+
 - Neither ReactElement nor ReactComponent nor ReactClass as mentioned in the documentation are types in any classic sense
     - They rather are concepts
 - React.Component is a class
