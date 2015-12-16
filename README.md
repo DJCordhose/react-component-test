@@ -36,3 +36,11 @@ Here you can find some [formal type definitions from the React documentation](ht
         - if the type is something created with React.createClass, then you will get an instance of that, but the prototype chain is weird, so that it is not instanceof React.Component, but shares some methods with it
     - use for this ReactComponent is limited
     - however, you will need a ReactComponent to use the methods of ReactTestUtils that are not related to shallow renderers
+
+## Credits
+
+- @bruderstein for the initial set of tests: https://gist.github.com/bruderstein/dbc1f075a9844a38cc11
+- https://medium.com/@dan_abramov/react-components-elements-and-instances-90800811f8ca#.ul1fukrwm
+- http://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/
+- https://github.com/facebook/react/blob/master/src/isomorphic/ReactIsomorphic.js#L48
+
