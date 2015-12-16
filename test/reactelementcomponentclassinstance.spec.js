@@ -43,18 +43,32 @@ const MyES5Component = React.createClass({
 });
 
 describe('React', () => {
+
 	jsdom();
-	describe('compoennt is not created nor rendered before render', () => {
-		it('returns an instance of React.Component', () => {
+
+	describe('component', () => {
+
+		beforeEach(() => {
+
 			MyClassComponentIntrospection.constructorCalled = false;
 			MyClassComponentIntrospection.renderCalled = false;
+		});
+
+		it('does not call the constructor on createElement', () => {
+
+			React.createElement(MyClassComponentIntrospection);
+
+			expect(MyClassComponentIntrospection.constructorCalled, 'to be false');
+			expect(MyClassComponentIntrospection.renderCalled, 'to be false');
+		});
+
+		it('calls the constructor after render', () => {
 
 			const container = document.createElement('div');
 			const element = React.createElement(MyClassComponentIntrospection);
-			expect(MyClassComponentIntrospection.constructorCalled, 'to be false');
-			expect(MyClassComponentIntrospection.renderCalled, 'to be false');
 
-			const component = ReactDOM.render(element, container);
+			ReactDOM.render(element, container);
+
 			expect(MyClassComponentIntrospection.constructorCalled, 'to be true');
 			expect(MyClassComponentIntrospection.renderCalled, 'to be true');
 		});
@@ -79,7 +93,7 @@ describe('React', () => {
 				// expect(component.__proto__ === MyClassComponent.prototype, 'to be true');
 				// expect(component.__proto__.__proto__ === React.Component.prototype, 'to be true');
 				// console.log(component);
-				
+
 			});
 
 			it('returns an instance of MyClassComponent', () => {
