@@ -87,13 +87,18 @@ describe('React', () => {
 			});
 
 			it('returns an instance of React.Component', () => {
-				// console.log(component.__proto__.__proto__);
 
 				expect(component instanceof React.Component, 'to be true');
-				// expect(component.__proto__ === MyClassComponent.prototype, 'to be true');
-				// expect(component.__proto__.__proto__ === React.Component.prototype, 'to be true');
-				// console.log(component);
+			});
 
+			it('has a prototype of the original component prototype', () => {
+
+				expect(component.__proto__, 'to be', MyClassComponent.prototype);
+			});
+
+			it('has a grand-parent prototype of the React.Component prototype', () => {
+
+				expect(component.__proto__.__proto__, 'to be', React.Component.prototype);
 			});
 
 			it('returns an instance of MyClassComponent', () => {
@@ -119,7 +124,7 @@ describe('React', () => {
 			});
 
 			it('protoype shares methods with React.Component', () => {
-				// but rahter something really weird:
+				// but rather something really weird:
 				expect(React.Component.prototype, 'not to be', component.__proto__.__proto__);
 				expect(React.Component.prototype.setState, 'to be', component.__proto__.__proto__.setState);
 				expect(React.Component.prototype.forceUpdate, 'to be', component.__proto__.__proto__.forceUpdate);
