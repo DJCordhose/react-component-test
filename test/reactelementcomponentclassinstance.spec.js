@@ -128,7 +128,6 @@ describe('React', () => {
 				expect(React.Component.prototype, 'not to be', component.__proto__.__proto__);
 				expect(React.Component.prototype.setState, 'to be', component.__proto__.__proto__.setState);
 				expect(React.Component.prototype.forceUpdate, 'to be', component.__proto__.__proto__.forceUpdate);
-				// console.log(React.Component);
 			});
 
 
